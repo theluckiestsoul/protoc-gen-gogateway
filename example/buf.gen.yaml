@@ -1,0 +1,12 @@
+version: v1
+plugins:
+  - name: go
+    out: pkg
+    opt: paths=source_relative
+  - name: gogateway
+    out: internal
+    opt: 
+     - paths=source_relative
+     - mod=github.com/theluckiestsoul/protoc-gen-gogateway/example
+     - port=9090
+    strategy: all

@@ -1,0 +1,18 @@
+syntax = "proto3";
+package entity;
+
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "openapiv3/annotations.proto";
+import "validate/validate.proto";
+option go_package = "github.com/theluckiestsoul/protoc-gen-gogateway/example/pkg/proto/entity";
+
+message HelloRequest{
+    string name = 1;
+}
+
+message HelloResponse{
+    string message = 1;
+}

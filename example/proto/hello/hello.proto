@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package hello;
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "openapiv3/annotations.proto";
+import "validate/validate.proto";
+import "proto/entity/entity.proto";
+
+option go_package = "github.com/theluckiestsoul/protoc-gen-gogateway/example/pkg/hello";
+
+
+
+
+
+service HelloService {
+  option (google.api.default_host) = "foo.googleapi.com";
+
+  rpc SayHello (entity.HelloRequest) returns (entity.HelloResponse) {
+    option (google.api.http) = {
+      post: "/v1/messages:hello"
+      body: "*"
+    };
+  }
+
+  rpc SayHelloAgain (entity.HelloRequest) returns (entity.HelloResponse) {
+    option (google.api.http) = {
+      post: "/v1/messages:helloAgain"
+      body: "*"
+    };
+  }
+}
